@@ -1,0 +1,13 @@
+assemble: [testsrc/sp.s, testsrc/pc.s]
+disks:
+- name: mydiskimage
+  file: mydiskimage800.2mg
+  size: 800KB
+  files:
+  - input: ../PRODOS.2.4.2/PRODOS
+    output: /mydiskimage        
+  - input: testsrc/sp.s
+    output: /mydiskimage
+  - input: ../modsearch/potential/eclipse.ntp
+    output: /mydiskimage
+    ftaux: #B30000
