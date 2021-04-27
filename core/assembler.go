@@ -5,6 +5,7 @@ import (
 	"log"
 	"os/exec"
 
+	"github.com/fatih/color"
 	"github.com/spf13/viper"
 )
 
@@ -21,11 +22,10 @@ func Assemble() {
 	for _, filename := range filesToAssemble {
 		fmt.Printf("Assembling %v\n", filename)
 
-		cmd := exec.Command(Merlin32Path, "-V", filename)
-
-		err := cmd.Run()
+		out, err := exec.Command(Merlin32Path, "-V", filename).Output()
 
 		if err != nil {
+			color.Cyan(string(out))
 			log.Fatal(err)
 		}
 	}
