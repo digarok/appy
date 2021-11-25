@@ -5,25 +5,18 @@ import (
 	"log"
 	"os/exec"
 
+	"github.com/digarok/appy/core/project"
 	"github.com/fatih/color"
-	"github.com/spf13/viper"
 )
 
 var filesToAssemble []string
 
-const Merlin32Path = "/usr/local/bin/merlin32"
-
 func Assemble() {
-	//fmt.Println("asm called")
-	filesToAssemble = viper.GetViper().GetStringSlice("assemble")
-
-	//fmt.Fprintln(os.Stderr, "HEY", filesToAssemble)
-
-	for _, filename := range filesToAssemble {
+	// assemble all files in list
+	for _, filename := range project.AppyProj.Assemble {
 		fmt.Printf("Assembling %v\n", filename)
 
-		out, err := exec.Command(Merlin32Path, "-V", filename).Output()
-
+		out, err := exec.Command(project.LocalConf.Programs.Merlin32, "-V", filename).Output()
 		if err != nil {
 			color.Cyan(string(out))
 			log.Fatal(err)
