@@ -70,19 +70,12 @@ func handleLocalConfigs() {
 		if err != nil {         // Handle errors reading the config file
 			log.Fatalf("unable to read LOCAL config, %v", err)
 		}
-		// var m32 string = v.Get("merlin32")
-		// if len(m32) > 0 {
-		// 	LocalConf.Merlin32 = m32
-		// }
-		// fmt.Println(m32)
-		// fmt.Println(locals)
 
 		err = v.Unmarshal(&LocalConf)
 		if err != nil {
 			panic("Unable to unmarshal local")
 		}
-		// err = v.UnmarshalKey("programs.merlin32", &LocalConf.Programs.Merlin32)
-		// fmt.Println(LocalConf.Programs)
+
 		fmt.Println("Loaded local conf")
 	}
 }

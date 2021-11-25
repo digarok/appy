@@ -77,4 +77,4 @@ $ appy brun         # assemble files, make disk, and launch emulator
 ### Version Notes
 This is an early experimental version not intended for public use.
 
-Versioning from external sources and custom tool paths not yet implemented but all core functionality exists.
+Versioning/vendoring binaries from external sources not yet implemented but all core functionality exists including local binary overrides.
