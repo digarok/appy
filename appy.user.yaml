@@ -1,0 +1,4 @@
+# local system settings/overrides
+programs:
+  merlin32: 'G:\My Drive\appleiigs\tools\merlin32-windows-v1.1.10\Merlin32.exe'
+  cadius: 'G:\My Drive\appleiigs\tools\Cadius.exe'

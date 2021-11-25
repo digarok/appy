@@ -8,12 +8,10 @@ import (
 	"github.com/digarok/appy/core/project"
 )
 
-const CadiusPath = "/usr/local/bin/cadius"
-
 func CreateDisk(name string, file string, size string) {
 	fmt.Printf("Creating Disk: \"%s\" -> %s \tSize: %s\n", name, file, size)
 
-	cmd := exec.Command(CadiusPath, "CREATEVOLUME", file, name, size)
+	cmd := exec.Command(project.LocalConf.Programs.Cadius, "CREATEVOLUME", file, name, size)
 
 	err := cmd.Run()
 
@@ -27,7 +25,7 @@ func AddFiles(disk project.Disk) {
 	for _, file := range disk.Files {
 		// fmt.Printf("%s ADDFILE %s %s %s\n", CadiusPath, disk.File, file.Output, file.Input)
 		fmt.Printf(" Adding file: ----->  %s\n", file.Input)
-		cmd := exec.Command(CadiusPath, "ADDFILE", disk.File, file.Output, file.Input)
+		cmd := exec.Command(project.LocalConf.Programs.Cadius, "ADDFILE", disk.File, file.Output, file.Input)
 		err := cmd.Run()
 
 		if err != nil {

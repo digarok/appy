@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"github.com/digarok/appy/core"
-
 	"github.com/spf13/cobra"
 )
 

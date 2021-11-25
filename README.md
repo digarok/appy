@@ -27,7 +27,32 @@ Appy abstracts the tools away from a script mindset, and into a project mindset.
 
 ## The project file
 
-Currently it uses an `appy.yaml` file in the current project directory. 
+Currently it uses an `appy.yaml` file in the current project directory. The format is as follows:
+```
+assemble: [main.s, grafix.s, snd.s, a.s, b.s]   # <--- list of files to assemble with Merlin                  
+disks:                                          # <--- define disks, can be more than one, handy for 140K + 800K
+- name: mydiskimage                             #   <---- each disk has a name (ProDOS volume name)
+  file: mydiskimage800.2mg                      #   <---- each disk has a filename for the image it creates
+  size: 800KB                                   #   <---- each disk has a size (valid Cadius sizes)
+  files:                                        #   <---- each disk has zero or more files
+  - input: ../PRODOS.2.4.2/PRODOS               #     <---- each file has an input location (on your host system)
+    output: /mydiskimage                        #     <----       ... and an output location (on the ProDOS disk image)
+  - input: testsrc/sp.s
+    output: /mydiskimage
+  - input: ../modsearch/potential/eclipse.ntp
+    output: /mydiskimage
+    ftaux: #B30000                              #     <----       ... and option filetype/auxtype info (not sure if working)
+```
+
+## User Overrides
+What if your copy of Merlin32 (assembler) is in a different location than your teammates?  You can set up local binary overrides with an `appy.user.yaml` file in the same directory.  It allows the following 3 program settings:
+```
+# local system settings/overrides
+programs:
+  merlin32: 'G:\My Drive\appleiigs\tools\merlin32-windows-v1.1.10\Merlin32.exe'
+  cadius: 'G:\My Drive\appleiigs\tools\Cadius.exe'
+  gsplus: 'myproj\gsplus'
+```
 
 ### Running Appy
 
