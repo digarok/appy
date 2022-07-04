@@ -72,6 +72,9 @@ $ appy build        # assemble files and make disk, aka 'asm'+'disk'
 
 $ appy brun         # assemble files, make disk, and launch emulator
                     #   aka 'asm'+'disk'+'run'
+
+$ appy fmt          # format/indent your assembly file in appy.yaml
+                    # you can also pass in filename(s) to format
 ```
 
 ### Version Notes
