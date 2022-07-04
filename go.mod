@@ -10,4 +10,4 @@ require (
 	github.com/spf13/viper v1.7.1
 )
 
-replace github.com/digarok/merlingo => ../merlingo
+//replace github.com/digarok/merlingo => ../merlingo
