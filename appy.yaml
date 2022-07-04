@@ -1,4 +1,4 @@
-assemble: [testsrc/sp.s, testsrc/pc.s]
+assemble: [testsrc/sp.s, testsrc/pc.s, testsrc/fmt.s]
 disks:
 - name: mydiskimage
   file: mydiskimage800.2mg

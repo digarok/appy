@@ -9,8 +9,6 @@ import (
 	"github.com/fatih/color"
 )
 
-var filesToAssemble []string
-
 func Assemble() {
 	// assemble all files in list
 	for _, filename := range project.AppyProj.Assemble {

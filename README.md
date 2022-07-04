@@ -78,3 +78,10 @@ $ appy brun         # assemble files, make disk, and launch emulator
 This is an early experimental version not intended for public use.
 
 Versioning/vendoring binaries from external sources not yet implemented but all core functionality exists including local binary overrides.
+
+
+### Dev Quickstart
+
+1. Checkout
+2. Run `go mod tidy` to install dependencies
+3. Run `go build & go install` to build and install
