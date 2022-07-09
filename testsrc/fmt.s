@@ -22,3 +22,6 @@ HEXDEC	mx %11
                 STA DEC8+2
                 STA DEC8+3
 ReallyThisisaLoooooongLabelwith stal $e12000,y  ; look at this long line
+
+* TABS....
+* $D5	$0008	 sequence [Application Specific]
