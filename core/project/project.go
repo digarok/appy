@@ -13,6 +13,7 @@ type Project struct {
 	name     string
 	Disks    []Disk
 	Assemble []string
+	Indent   []string
 }
 
 type Disk struct {

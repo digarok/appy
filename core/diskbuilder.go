@@ -6,14 +6,15 @@ import (
 	"os/exec"
 
 	"github.com/digarok/appy/core/project"
+	"github.com/fatih/color"
 )
 
 func CreateDisk(name string, file string, size string) {
 	fmt.Printf("Creating Disk: \"%s\" -> %s \tSize: %s\n", name, file, size)
 
-	cmd := exec.Command(project.LocalConf.Programs.Cadius, "CREATEVOLUME", file, name, size)
-	err := cmd.Run()
+	out, err := exec.Command(project.LocalConf.Programs.Cadius, "CREATEVOLUME", file, name, size).Output()
 	if err != nil {
+		color.Cyan(string(out))
 		log.Fatal(err)
 	}
 }
@@ -21,12 +22,11 @@ func CreateDisk(name string, file string, size string) {
 func AddFiles(disk project.Disk) {
 	fmt.Printf("Add files to:  \"%s\"\n", disk.Name)
 	for _, file := range disk.Files {
-		// fmt.Printf("%s ADDFILE %s %s %s\n", CadiusPath, disk.File, file.Output, file.Input)
 		fmt.Printf(" Adding file: ----->  %s\n", file.Input)
 
-		cmd := exec.Command(project.LocalConf.Programs.Cadius, "ADDFILE", disk.File, file.Output, file.Input)
-		err := cmd.Run()
+		out, err := exec.Command(project.LocalConf.Programs.Cadius, "ADDFILE", disk.File, file.Output, file.Input).Output()
 		if err != nil {
+			color.Cyan(string(out))
 			log.Fatal(err)
 		}
 	}

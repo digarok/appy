@@ -14,6 +14,11 @@ func Format(args []string) {
 			fmt.Printf("Formatting %v\n", filename)
 			merlingo.FmtFile(filename)
 		}
+		// format all indent files in appy.yaml
+		for _, filename := range project.AppyProj.Indent {
+			fmt.Printf("Formatting %v\n", filename)
+			merlingo.FmtFile(filename)
+		}
 	} else {
 		// format all assembly files in args
 		for _, filename := range args {

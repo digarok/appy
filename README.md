@@ -29,7 +29,8 @@ Appy abstracts the tools away from a script mindset, and into a project mindset.
 
 Currently it uses an `appy.yaml` file in the current project directory. The format is as follows:
 ```
-assemble: [main.s, grafix.s, snd.s, a.s, b.s]   # <--- list of files to assemble with Merlin                  
+assemble: [main.s, grafix.s, snd.s, a.s, b.s]   # <--- list of files to assemble with Merlin   
+indent: [c.s]                                   # <--- additional files to indent when running `appy fmt`               
 disks:                                          # <--- define disks, can be more than one, handy for 140K + 800K
 - name: mydiskimage                             #   <---- each disk has a name (ProDOS volume name)
   file: mydiskimage800.2mg                      #   <---- each disk has a filename for the image it creates
@@ -45,7 +46,7 @@ disks:                                          # <--- define disks, can be more
 ```
 
 ## User Overrides
-What if your copy of Merlin32 (assembler) is in a different location than your teammates?  You can set up local binary overrides with an `appy.user.yaml` file in the same directory.  It allows the following 3 program settings:
+What if your copy of Merlin32 (assembler) is in a different location than your teammate's?  You can set up local binary overrides with an `appy.user.yaml` file in the same directory.  It allows the following 3 program settings:
 ```
 # local system settings/overrides
 programs:
