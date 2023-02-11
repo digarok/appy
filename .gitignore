@@ -1,4 +1,5 @@
 # cadius disk files
-*.2mg
+*.2mg 
+*.po
 # merlin assembly listings
 *_output.txt

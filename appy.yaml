@@ -1,4 +1,5 @@
 assemble: [testsrc/sp.s, testsrc/pc.s, testsrc/fmt.s]
+assembleflags: "-V"
 indent: [testsrc/fmt2.s]
 disks:
 - name: mydiskimage

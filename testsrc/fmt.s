@@ -9,7 +9,7 @@ main nop
   sta   :jo+1
 
 
-:jo+1   lda $400
+:jo   lda $400
              lda   $400
                  rts
 
@@ -21,7 +21,8 @@ HEXDEC	mx %11
                 STA DEC8+1
                 STA DEC8+2
                 STA DEC8+3
-ReallyThisisaLoooooongLabelwith stal $e12000,y  ; look at this long line
+ReallyThisisaLoooooongLabelwith stal $e12000,x  ; look at this long line
 
 * TABS....
 * $D5	$0008	 sequence [Application Specific]
+DEC8 ds                                                      24

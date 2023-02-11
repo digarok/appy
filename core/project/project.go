@@ -10,10 +10,11 @@ import (
 )
 
 type Project struct {
-	name     string
-	Disks    []Disk
-	Assemble []string
-	Indent   []string
+	name          string
+	Disks         []Disk
+	Assemble      []string
+	Indent        []string
+	AssembleFlags string
 }
 
 type Disk struct {
@@ -47,6 +48,7 @@ var LocalConf LocalConfig
 
 func SelfConfigure() {
 	AppyProj.name = "Default"
+	AppyProj.AssembleFlags = ""
 	LocalConf.Programs.Merlin32 = Merlin32Path
 	LocalConf.Programs.Cadius = CadiusPath
 	LocalConf.Programs.Gsplus = GsplusPath
