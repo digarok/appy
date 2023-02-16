@@ -27,10 +27,13 @@ Appy abstracts the tools away from a script mindset, and into a project mindset.
 
 ## The project file
 
-Currently it uses an `appy.yaml` file in the current project directory. The format is as follows:
+Appy uses an `appy.yaml` file in the current project directory. The basic format is as follows:
 ```
 assemble: [main.s, grafix.s, snd.s, a.s, b.s]   # <--- list of files to assemble with Merlin   
-indent: [c.s]                                   # <--- additional files to indent when running `appy fmt`               
+assembleflags: "-V"                             # <--- optional flags to Merlin, including macro directory
+indent: [c.s]                                   # <--- optional additional files to indent when running `appy fmt` 
+formatflags: "mc:10 oc:14 cc:30 ms:1 bs:2"      # <--- optional flags to indent 
+
 disks:                                          # <--- define disks, can be more than one, handy for 140K + 800K
 - name: mydiskimage                             #   <---- each disk has a name (ProDOS volume name)
   file: mydiskimage800.2mg                      #   <---- each disk has a filename for the image it creates
@@ -77,6 +80,34 @@ $ appy brun         # assemble files, make disk, and launch emulator
 $ appy fmt          # format/indent your assembly file in appy.yaml
                     # you can also pass in filename(s) to format
 ```
+
+### About the built-in code formatter
+
+Appy uses the [MerlinGo](https://github.com/digarok/merlingo) formatter to indent source code.  You can override the default indentation with the various options documented here.
+
+- `mc`: mnemonic column, where instructions start
+- `oc`: opcode column
+- `cc`: comment column
+- `ms`: min space, the minimum amount of space it will allow between two columns
+
+You can define these in your `appy.yaml` project file like so:
+```
+formatflags: "mc:10 oc:14 cc:30 ms:1" 
+```
+
+You can also set it in files directly by adding it as a comment marked `ed:` on any line of the file like:
+``` 
+*  ed: mc=40 oc=26 cc=48 ms=5   <-  indentation modeline
+```
+ OR
+```
+        org $2000
+                ;  ed: mc=40 oc=26 cc=48 ms=5   <-  indentation modeline
+        lda ...         
+```
+Again either comment style works on any line of the file, but don't add more than one modeline per file. 
+
+Also, if you set format options at the project AND file level, then Appy will use the project defaults except when a file specifies its own settings, then it will respect the file settings instead. 
 
 ### Version Notes
 This is an early experimental version not intended for public use.

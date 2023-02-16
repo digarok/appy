@@ -8,6 +8,10 @@ import (
 )
 
 func Format(args []string) {
+	// merlingo.Status()
+	if project.AppyProj.FormatFlags != "" {
+		merlingo.ParseModeline(project.AppyProj.FormatFlags)
+	}
 	if len(args) == 0 {
 		// format all assembly files in appy.yaml
 		for _, filename := range project.AppyProj.Assemble {
@@ -26,4 +30,5 @@ func Format(args []string) {
 			merlingo.FmtFile(filename)
 		}
 	}
+	// merlingo.Status()
 }

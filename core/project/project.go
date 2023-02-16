@@ -15,6 +15,7 @@ type Project struct {
 	Assemble      []string
 	Indent        []string
 	AssembleFlags string
+	FormatFlags   string
 }
 
 type Disk struct {

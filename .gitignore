@@ -3,3 +3,4 @@
 *.po
 # merlin assembly listings
 *_output.txt
+*.exe

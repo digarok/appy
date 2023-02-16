@@ -25,3 +25,4 @@ ReallyThisisaLoooooongLabelwith stal $e12000,y  ; look at this long line
 
 * TABS....
 * $D5	$0008	 sequence [Application Specific]
+                                                ;  ed: mc=40 oc=26 cc=48 ms=5 bs=2   <-  indentation modeline
