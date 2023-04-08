@@ -1,9 +1,9 @@
 module github.com/digarok/appy
 
-go 1.16
+go 1.17
 
 require (
-	github.com/digarok/merlingo v1.0.4
+	github.com/digarok/merlingo v1.0.5
 	github.com/fatih/color v1.13.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.1.3
