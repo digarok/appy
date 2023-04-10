@@ -40,8 +40,8 @@ type Programs struct {
 	Gsplus   string
 }
 
-const Merlin32Path = "/usr/local/bin/merlin32"
-const CadiusPath = "/usr/local/bin/cadius"
+const Merlin32Path = "merlin32"
+const CadiusPath = "cadius"
 const GsplusPath = "gsplus"
 
 var AppyProj Project
